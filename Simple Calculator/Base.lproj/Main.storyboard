@@ -155,6 +155,9 @@
                                 <state key="normal" title="X">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedMultiply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xl-HF-kQ0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K80-Th-i6N" userLabel="btnMinus">
                                 <rect key="frame" x="284" y="302" width="81" height="111.5"/>

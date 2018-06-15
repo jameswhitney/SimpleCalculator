@@ -14,6 +14,7 @@ enum modes {
     case not_set
     case addition
     case substraction
+    case multiplication 
 }
 
 // MARK: - CalculatorViewController: UIViewController
@@ -47,6 +48,10 @@ class CalculatorViewController: UIViewController {
         changeModes(newMode: .substraction)
     }
     
+    @IBAction func pressedMultiply(_ sender: Any) {
+        changeModes(newMode: .multiplication)
+    }
+    
     @IBAction func pressedEquals(_ sender: Any) {
         guard let labelInt: Int = Int(labelString) else {
             return
@@ -62,6 +67,10 @@ class CalculatorViewController: UIViewController {
         
         else if (currentMode == .substraction) {
             savedNumber -= labelInt
+        }
+        
+        else if (currentMode == .multiplication) {
+            savedNumber *= labelInt
         }
         
         currentMode = .not_set
