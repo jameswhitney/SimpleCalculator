@@ -100,7 +100,11 @@ class CalculatorViewController: UIViewController {
             savedNumber = labelInt
         }
         
-        outputLabel.text = "\(labelInt)"
+        let formatter: NumberFormatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let number: NSNumber = NSNumber(value: labelInt)
+        
+        outputLabel.text = formatter.string(from: number)
     }
     
     // changes mode selected by user, ie addition or subtraction
