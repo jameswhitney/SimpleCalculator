@@ -40,11 +40,11 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func pressedPlus(_ sender: Any) {
-        
+        changeModes(newMode: .addition)
     }
     
     @IBAction func pressedSubtract(_ sender: Any) {
-        
+        changeModes(newMode: .substraction)
     }
     
     @IBAction func pressedEquals(_ sender: Any) {
@@ -62,6 +62,11 @@ class CalculatorViewController: UIViewController {
     @IBAction func pressedNumButton(_ sender: UIButton) {
         let stringValue: String? = sender.titleLabel?.text
         
+        if (lastButtonWasMode) {
+            lastButtonWasMode = false
+            labelString = "0"
+        }
+        
         labelString = labelString.appending(stringValue!)
         updateText()
     }
@@ -72,12 +77,21 @@ class CalculatorViewController: UIViewController {
             return
         }
         
+        if (currentMode == .not_set) {
+            savedNumber = labelInt
+        }
+        
         outputLabel.text = "\(labelInt)"
     }
     
     // changes mode selected by user, ie addition or subtraction
     func changeModes(newMode: modes) {
+        if (savedNumber == 0) {
+            return
+        }
         
+        currentMode = newMode
+        lastButtonWasMode = true
     }
 
 }
