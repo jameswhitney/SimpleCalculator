@@ -20,11 +20,14 @@ enum modes {
 
 class CalculatorViewController: UIViewController {
     
+    
+    @IBOutlet weak var outputLabel: UILabel!
+    
     // Instance variables
     var labelString: String = "0"
     var currentMode: modes = .not_set
     var savedNumber: Int = 0
-    var lastButtonWasMode: Boole = false
+    var lastButtonWasMode: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,26 @@ class CalculatorViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func pressedPlus(_ sender: Any) {
+        
+    }
+    
+    @IBAction func pressedSubtract(_ sender: Any) {
+        
+    }
+    
+    @IBAction func pressedEquals(_ sender: Any) {
+        
+    }
+
+    @IBAction func pressedClear(_ sender: Any) {
+        
+    }
+    
+    @IBAction func pressedNumButton(_ sender: UIButton) {
+        
     }
     
     // updates text in UIlabel
