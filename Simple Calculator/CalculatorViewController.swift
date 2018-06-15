@@ -56,12 +56,19 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func pressedNumButton(_ sender: UIButton) {
+        let stringValue: String? = sender.titleLabel?.text
         
+        labelString = labelString.appending(stringValue!)
+        updateText()
     }
     
     // updates text in UIlabel
     func updateText() {
+        guard let labelInt: Int = Int(labelString) else {
+            return
+        }
         
+        outputLabel.text = "\(labelInt)"
     }
     
     // changes mode selected by user, ie addition or subtraction
