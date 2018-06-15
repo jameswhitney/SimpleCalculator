@@ -48,7 +48,26 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func pressedEquals(_ sender: Any) {
+        guard let labelInt: Int = Int(labelString) else {
+            return
+        }
         
+        if (currentMode == .not_set || lastButtonWasMode) {
+            return
+        }
+        
+        if (currentMode == .addition) {
+            savedNumber += labelInt
+        }
+        
+        else if (currentMode == .substraction) {
+            savedNumber -= labelInt
+        }
+        
+        currentMode = .not_set
+        labelString = "\(savedNumber)"
+        updateText()
+        lastButtonWasMode = true
     }
 
     @IBAction func pressedClear(_ sender: Any) {
