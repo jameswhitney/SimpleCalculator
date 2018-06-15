@@ -52,7 +52,11 @@ class CalculatorViewController: UIViewController {
     }
 
     @IBAction func pressedClear(_ sender: Any) {
-        
+        labelString = "0"
+        currentMode = .not_set
+        savedNumber = 0
+        lastButtonWasMode = false
+        outputLabel.text = "0"
     }
     
     @IBAction func pressedNumButton(_ sender: UIButton) {
